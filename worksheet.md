@@ -8,9 +8,13 @@ When done, make a pull request and tag @AnhThuongVo.
 Respond to my comments by making new commits to the same branch.
 
 ## Review
-1. In your own words, explain what an ArrayList is. 
+1. In your own words, explain what an ArrayList is.
+
+   An ArrayList is a resizable array. ***
 
 2. In your own words, explain what a LinkedList is. How is it different from an ArrayList?
+
+   The LinkedList is almost identical to an ArrayList, but while they can be used in the same ways they are built differently 
 
 ## Exploration
 
