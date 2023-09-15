@@ -3,6 +3,7 @@ import java.lang.AssertionError;
 public class MyArrayList<T> {
 
 	// FIXME add member variables
+	private MyArrayList<T> array = null;
 
 	/**
 	 * Construct an MyArrayList with a given initial length.
@@ -19,7 +20,7 @@ public class MyArrayList<T> {
 	 * @return The number of elements in the MyArrayList.
 	 */
 	public int size() {
-		return 0; // FIXME
+		return this.size; // FIXME
 	}
 
 
