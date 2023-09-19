@@ -8,9 +8,13 @@ When done, make a pull request and tag @AnhThuongVo.
 Respond to my comments by making new commits to the same branch.
 
 ## Review
-1. In your own words, explain what an ArrayList is. 
+1. In your own words, explain what an ArrayList is.
+
+   An ArrayList is a resizable array; it is dynamic. It is implemented using an array-based data structure. The difference between an array and an ArrayList is that the size of an array cannot be modified because an array is static, so if you want to add or remove elements to/from an array, you have to create an entirely new one. Elements can be added and removed from an ArrayList whenever.
 
 2. In your own words, explain what a LinkedList is. How is it different from an ArrayList?
+
+   A singly-linked list is a linear data structure where each node has data and a pointer to the next node. A doubly-linked list is a data structure where each node has data, a pointer to the next node, and a pointer to the previous node (unlike a singly-linked list, where each node only has a pointer to the next node; such a list is called "doubly-linked" because each node has two pointers, or "links"). The list structure typically has pointers to the list's first node (the head) and last node (the tail). Linked-lists are positional lists: lists where elements contain pointers to the next and/or previous elements in the list. The most obvious difference between a linked-list and an ArrayList is how they are built differently (an ArrayList does not have pointers to either the next or previous nodes, etc.), but also manipulating ArrayList takes more time as compared to a linked-list due to the internal implementation. Whenever an element is removed, internally, the array is traversed and memory bits (data) are shifted. Manipulating LinkedList takes less time compared to ArrayList because, in a doubly-linked list, there is no shifting of the memory bits. The list is simply traversed and the pointer/reference link is changed.
 
 ## Exploration
 
@@ -18,19 +22,20 @@ Respond to my comments by making new commits to the same branch.
 
     You can download the starter code in `MyArrayList.java` and work in Eclipse. I recommend using Github Desktop (or commandline git, if you're comfortable with it) to make updating your repo easier.
 
-    Remember to test and save often. The `main()` in `MyArrayList.java` already has some tests, although you will not pass all of them in this section (resizing the list is left for the Challenge section below). 
-a. First, we need to be able to create an MyArrayList. Find the public constructor method. What member variables will it need to set? Add those member variables at the first `FIXME`, above the method declaration.    
+    Remember to test and save often. The `main()` in `MyArrayList.java` already has some tests, although you will not pass all of them in this section (resizing the list is left for the Challenge section below).
+   
+a. First, we need to be able to create an MyArrayList. Find the public constructor method. What member variables will it need to set? Add those member variables at the first `FIXME`, above the method declaration.
 _Note_: Java does not allow us to instantiate generic arrays. We can get around this by creating an `Object` array and [casting](https://www.geeksforgeeks.org/class-type-casting-in-java/) it to the generic type. For example: `T[] arr = (T[]) new Object [len];`  
 b. Fill in the missing code inside the constructor, making sure to set the member variables you just added.  
 c. This is an easy one - we should be able to quickly check the current size of our MyArrayList. Fix the `size()` method to return the current actual size.  
 d. Now that we can create an MyArrayList and check its size, let's start putting elements in there. Fill in the `add()` method, which adds a given element to the end of an MyArrayList. You do *not* need to worry about resizing for now; that is left for the Challenge section below.  
 e. Once we have put a few variables inside our MyArrayList, we should be able view them. Fix the` get()` method, which takes an index and returns the element that is at index in the MyArrayList.
 
-2. In this question, you will recreate the Java code to build a LinkedList. The intention is that, after watching the live-coding videos, you should be able to *independently* think through how a LinkedList works, and to write the code from scratch. I encourage you to do this section of the worksheet *without* referring to the videos.
+3. In this question, you will recreate the Java code to build a LinkedList. The intention is that, after watching the live-coding videos, you should be able to *independently* think through how a LinkedList works, and to write the code from scratch. I encourage you to do this section of the worksheet *without* referring to the videos.
 
     You can download the starter code in `MyLinkedList.java` and work in Eclipse. I recommend using Github Desktop (or commandline git, if you're comfortable with it) to make updating your repo easier.        
 a. First, we need to create the inner Node class. What member variables does it need? What information is stored in each of these member variables? Write the code for these member variables, and initialize them in the Node constructor.  
-b. What are the member variables of the MyLinkedList class? What information is stored in each of these member variables? What should they be initialized to? Write the code for these member variables, and initialize them in the MyLinkedList constructor. Consider where the `head` and `tail` pointers, in particular, should point.   
+b. What are the member variables of the MyLinkedList class? What information is stored in each of these member variables? What should they be initialized to? Write the code for these member variables, and initialize them in the MyLinkedList constructor. Consider where the `head` and `tail` pointers, in particular, should point.
 c. Another easy one - fill out the code for `size()`, which should return the current number of elements in our MyLinkedList.  
 d. For a singly-linked list, there are two cases we have to think about for `add()`. What are those cases? What should be done in each case? Write the code for `add()` when you understand what should happen in each case.    
 e. The next method, `get()` requires looping through the nodes to get to the correct index. Fill in the code for `get()`.  
@@ -53,7 +58,13 @@ a. Why do we _not_ need a `resize()` method for MyLinkedList?
 b. The code for the `remove()` method can be broken down into four cases. What are they? What should the code do in each case?  
 c. Write the code for `remove()`.  Your implementation of MyLinkedList is now complete.
 
-4. Sections 4.6-4.8 of Zybooks describe a data structure called the doubly-linked list. in short, the main distinguishing feature of a doubly-linked list is that nodes have both `next` and `prev` pointers, that point to the next node and the previous node respectively. This means that the code for a doubly-linked list is almost exactly the same as that for a singly-linked lists, except for the node pointers that you have to change when adding and removing elements.    
-a. Without writing any code, explain how you would need to modify your MyLinkedList `add()` method to turn your implementation into a doubly-linked list.  
+4. Sections 4.6-4.8 of Zybooks describe a data structure called the doubly-linked list. in short, the main distinguishing feature of a doubly-linked list is that nodes have both `next` and `prev` pointers, that point to the next node and the previous node respectively. This means that the code for a doubly-linked list is almost exactly the same as that for a singly-linked lists, except for the node pointers that you have to change when adding and removing elements.
+
+
+a. Without writing any code, explain how you would need to modify your MyLinkedList `add()` method to turn your implementation into a doubly-linked list.
+
+   In a doubly-linked list, every node has a 'previous pointer' ('prev pointer') and a 'next pointer'. To modify the MyLinkedList 'add()' method to turn my implementation into a doubly-linked list, when inserting after the list's tail node to the end of the list, the tail node's next node would be pointed to the newNode, the newNode's previous pointer would be pointed to the list's tail node, and the list's tail node would be pointed to the new node.
+   
 b. Without writing any code, explain how you would need to modify your MyLinkedList `remove()` method to turn your implementation into a doubly-linked list. How would each of the four cases change?
 
+   To modify the MyLinkedList 'remove()' method to turn my implementation into a doubly-linked list, currNode points to the node to be removed, sucNode (the successor node) points to currNode's successor (currNode's next node, currNode.next). predNode points to currNode's predecessor (currNode's previous node). sucNode's previous pointer is pointed to the node preceding currNode. If the list's head node is the node to be removed (index == 0), the list's head pointer is pointed to the successor node. With the pointers updated, currNode can be removed. If the list's tail node is the node to be removed (index == this.size - 1), curNode points to node the tail node, and sucNode points to nothing (null). predNode points to the node before the tail node. predecessor node's next pointer is pointed to the successor node. The list's tail pointer is then assigned with predNode. With pointers updated, currNode can be removed. If the node to be removed is some node in the middle, currNode points to the node to be removed, and sucNode points to the following node. predNode points to the node before the node to be removed. The predecessor node's next pointer is pointed to the successor node. The successor node's previous pointer is pointed to the predecessor node. With pointers updated, curNode can be removed.
