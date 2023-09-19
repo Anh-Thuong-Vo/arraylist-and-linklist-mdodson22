@@ -1,17 +1,21 @@
+package Worksheet2;
+
 import java.lang.AssertionError;
 
 public class MyArrayList<T> {
 
-	// FIXME add member variables
-	private MyArrayList<T> array = null;
-
+	
+	private T[] array = null; // instantiation
+	private int size = 0;
+	
 	/**
 	 * Construct an MyArrayList with a given initial length.
 	 *
 	 * @param initialLength The initial length of the array.
 	 */
 	public MyArrayList (int initialLength) { // we do not need to redeclare the <T> type in the constructor
-		// FIXME
+		this.array = (T[]) new Object[initialLength]; // initialization
+		this.size = 0;
 	}
 
 	/**
@@ -20,7 +24,7 @@ public class MyArrayList<T> {
 	 * @return The number of elements in the MyArrayList.
 	 */
 	public int size() {
-		return this.size; // FIXME
+		return this.size;
 	}
 
 
@@ -30,8 +34,13 @@ public class MyArrayList<T> {
 	 * @param element The element to add.
 	 */
 	public void add(T element) {
-		// FIXME
-	}
+		
+		if (this.size == this.array.length) {
+			resize();
+		}
+			this.array[this.size] = element;
+			this.size++; // best practice 
+		}
 
 	/**
 	 * Get the element at the specified index.
@@ -42,7 +51,8 @@ public class MyArrayList<T> {
 	 * @return The element at the specified index.
 	 */
 	public T get(int index) {
-		return null; // FIXME
+		return this.array[index];
+		
 	}
 
 	/**
@@ -53,14 +63,23 @@ public class MyArrayList<T> {
 	 * @param index The index to remove.
 	 */
 	public void remove(int index) {
-		// FIXME
+		for (int i = index; i < (this.size - 1); i++) {
+			this.array[i] = this.array[i+1];
+		}
+		
+		this.size--;
 	}
 
 	/**
 	 * Double the size of the internal array.
 	 */
 	private void resize() {
-		//FIXME
+		T[] newArray = (T[]) new Object[this.array.length * 2];
+		
+		for (int i = 0; i < this.size; i++) { // iterating through the array!
+			 newArray[i] = this.array[i];
+		}
+		this.array = newArray;
 	}
 
 	/**
@@ -170,6 +189,7 @@ public class MyArrayList<T> {
 		MyArrayList <Integer> list = new MyArrayList(5);
 		for (int i = 0; i < 12; i++) {
 			list.add(i * i);
+			
 		}
 		int[] answer = {0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121};
 		MyArrayList.assertArraysEqual(list, answer);
@@ -189,5 +209,7 @@ public class MyArrayList<T> {
 
 		System.out.println("pass");
 	}
+
+}
 
 }
