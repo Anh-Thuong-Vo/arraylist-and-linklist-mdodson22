@@ -60,6 +60,7 @@ c. Write the code for `remove()`.  Your implementation of MyLinkedList is now co
 
 4. Sections 4.6-4.8 of Zybooks describe a data structure called the doubly-linked list. in short, the main distinguishing feature of a doubly-linked list is that nodes have both `next` and `prev` pointers, that point to the next node and the previous node respectively. This means that the code for a doubly-linked list is almost exactly the same as that for a singly-linked lists, except for the node pointers that you have to change when adding and removing elements.
 
+
 a. Without writing any code, explain how you would need to modify your MyLinkedList `add()` method to turn your implementation into a doubly-linked list.
 
    In a doubly-linked list, every node has a 'previous pointer' ('prev pointer') and a 'next pointer'. To modify the MyLinkedList 'add()' method to turn my implementation into a doubly-linked list, when inserting after the list's tail node to the end of the list, the tail node's next node would be pointed to the newNode, the newNode's previous pointer would be pointed to the list's tail node, and the list's tail node would be pointed to the new node.
