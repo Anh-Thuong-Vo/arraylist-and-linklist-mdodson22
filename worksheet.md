@@ -33,8 +33,14 @@ e. Once we have put a few variables inside our MyArrayList, we should be able vi
 2. In this question, you will recreate the Java code to build a LinkedList. The intention is that, after watching the live-coding videos, you should be able to *independently* think through how a LinkedList works, and to write the code from scratch. I encourage you to do this section of the worksheet *without* referring to the videos.
 
     You can download the starter code in `MyLinkedList.java` and work in Eclipse. I recommend using Github Desktop (or commandline git, if you're comfortable with it) to make updating your repo easier.        
-a. First, we need to create the inner Node class. What member variables does it need? What information is stored in each of these member variables? Write the code for these member variables, and initialize them in the Node constructor.  
-b. What are the member variables of the MyLinkedList class? What information is stored in each of these member variables? What should they be initialized to? Write the code for these member variables, and initialize them in the MyLinkedList constructor. Consider where the `head` and `tail` pointers, in particular, should point.   
+a. First, we need to create the inner Node class. What member variables does it need? What information is stored in each of these member variables? Write the code for these member variables, and initialize them in the Node constructor.
+
+   The inner Node class needs the member variables 'T data' and 'Node next'. The information stored in 'T data' is
+   
+b. What are the member variables of the MyLinkedList class? What information is stored in each of these member variables? What should they be initialized to? Write the code for these member variables, and initialize them in the MyLinkedList constructor. Consider where the `head` and `tail` pointers, in particular, should point.
+
+   The member variables of the MyLinkedList class are 'Node head', 'Node tail', and 'int size'. The information stored in the 
+
 c. Another easy one - fill out the code for `size()`, which should return the current number of elements in our MyLinkedList.  
 d. For a singly-linked list, there are two cases we have to think about for `add()`. What are those cases? What should be done in each case? Write the code for `add()` when you understand what should happen in each case.    
 e. The next method, `get()` requires looping through the nodes to get to the correct index. Fill in the code for `get()`.  
@@ -58,6 +64,9 @@ b. The code for the `remove()` method can be broken down into four cases. What a
 c. Write the code for `remove()`.  Your implementation of MyLinkedList is now complete.
 
 4. Sections 4.6-4.8 of Zybooks describe a data structure called the doubly-linked list. in short, the main distinguishing feature of a doubly-linked list is that nodes have both `next` and `prev` pointers, that point to the next node and the previous node respectively. This means that the code for a doubly-linked list is almost exactly the same as that for a singly-linked lists, except for the node pointers that you have to change when adding and removing elements.    
-a. Without writing any code, explain how you would need to modify your MyLinkedList `add()` method to turn your implementation into a doubly-linked list.  
+a. Without writing any code, explain how you would need to modify your MyLinkedList `add()` method to turn your implementation into a doubly-linked list.
+
+   In a doubly-linked list, every node has a 'previous pointer' and a 'next pointer'. TO modify the MyLinkedList 'add()' method, the newNode's previous pointer would be pointed to the list's tail node 
+
 b. Without writing any code, explain how you would need to modify your MyLinkedList `remove()` method to turn your implementation into a doubly-linked list. How would each of the four cases change?
 
